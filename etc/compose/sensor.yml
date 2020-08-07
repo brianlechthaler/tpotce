@@ -530,5 +530,68 @@ services:
      - /opt/tpot/etc/compose/elk_environment
     image: "dtagdevsec/ewsposter:2006"
     volumes:
-     - /data:/data
+     - /data:/data:ro
      - /data/ews/conf/ews.ip:/opt/ewsposter/ews.ip
+## Logstash service
+  logstash:
+    container_name: logstash
+    restart: always
+    environment:
+     - LS_JAVA_OPTS=-Xms1024m -Xmx1024m
+    env_file:
+     - /opt/tpot/etc/compose/elk_environment
+    image: "dtagdevsec/logstash:2006"
+    volumes:
+     - /data:/data:ro
+     - /data/elk/logstash.conf:/etc/logstash/conf.d/logstash.conf
+
+## Metricbeat service
+# Metricbeat service
+  metricbeat:
+    container_name: metricbeat
+    restart: always
+    image: "docker.elastic.co/beats/metricbeat:7.8.1"
+    user: root    
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock:ro
+     - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+     - /proc:/hostfs/proc:ro
+     - /:/hostfs:ro
+     - /opt/tpot/etc/metricbeat.docker.yml:/usr/share/metricbeat/metricbeat.yml:ro 
+
+## Auditbeat service
+  auditbeat:
+   container_name: auditbeat
+   restart: always
+   image: "docker.elastic.co/beats/auditbeat:7.8.1"
+   cap_add:
+    - "AUDIT_CONTROL"
+    - "AUDIT_READ"
+   pid: host
+   user: root
+   volumes:
+    - /data/auditbeat/auditbeat.docker.yml:/usr/share/auditbeat/auditbeat.yml:ro
+
+## Packetbeat service
+  packetbeat:
+   user: root
+   container_name: packetbeat
+   restart: always
+   image: "docker.elastic.co/beats/packetbeat:7.8.1"
+   cap_add:
+    - "NET_RAW"
+    - "NET_ADMIN"
+   network_mode: host
+   volumes:
+    - /data/packetbeat/packetbeat.docker.yml:/usr/share/packetbeat/packetbeat.yml:ro
+   entrypoint: ["packetbeat", "--environment=container", "--strict.perms=false"]
+
+## Heartbeat Service
+  heartbeat:
+   user: root
+   container_name: heartbeat
+   restart: always
+   image: "docker.elastic.co/beats/heartbeat:7.8.1"
+   volumes:
+    - /data/heartbeat/heartbeat.docker.yml:/usr/share/heartbeat/heartbeat.yml:ro
+   entrypoint: ["heartbeat", "--environment=container", "--strict.perms=false"]
