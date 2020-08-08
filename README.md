@@ -3,7 +3,7 @@
 * Edited sensor.yml configuration to support Elastic Beats 7.8.1
 * Edited sensor.yml to use logstash to ship logs from /data (you'll need to edit your logstash config to accomodate for shipping your logs off to a remote Elasticsearch instance)
 
-## Using modified senor.yml
+## Using modified sensor.yml
 * Place config files for each beat at /data/<beat_name>/<beat_name>.docker.yml. Refer to Elastic's Beat documentation for your specific beat to obtain a sample configuration file or write your own to accomodate your own needs.
 * Follow T-Pot wiki instructions for configuring logstash for remote log shipping
 * (**VERY IMPORTANT**)Configure Suricata `capture_filter.bpf` filter rules under /opt/tpot/docker/suricata/dist/ for your remote Elasticsearch instance so index requests to that instance don't count as logged traffic
