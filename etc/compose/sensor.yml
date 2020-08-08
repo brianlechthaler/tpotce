@@ -557,7 +557,7 @@ services:
      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
      - /proc:/hostfs/proc:ro
      - /:/hostfs:ro
-     - /opt/tpot/etc/metricbeat.docker.yml:/usr/share/metricbeat/metricbeat.yml:ro 
+     - /data/metricbeat/metricbeat.docker.yml:/usr/share/metricbeat/metricbeat.yml:ro 
 
 ## Auditbeat service
   auditbeat:
