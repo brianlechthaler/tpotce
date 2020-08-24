@@ -579,8 +579,8 @@ services:
     restart: always
     image: "docker.elastic.co/beats/filebeat:7.9.0"
     volumes:
-     - /data/filebeat/filebeat.docker.yml:/usr/share/filebeat/filebeat.yml:ro
-     - /data/filebeat/modules.d/suricata.yml:/data/filebeat/modules.d/suricata.yml:ro
+     - /opt/tpot/etc/elastic/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+     - /opt/tpot/etc/elastic/filebeat/modules.d/suricata.yml:/data/filebeat/modules.d/suricata.yml:ro
      - /var/lib/docker/containers:/var/lib/docker/containers:ro
      - /var/run/docker.sock:/var/run/docker.sock:ro
      - /data/suricata/log/eve.json:/data/suricata/eve.json:ro
