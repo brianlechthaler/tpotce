@@ -1,0 +1,24 @@
+filebeat.config:
+  modules:
+    path: /data/modules.d/*.yml
+    reload.enabled: false
+
+filebeat.modules:
+- module: suricata
+  eve:
+    enabled: true
+    var.paths: ["/data/suricata/eve.json"]
+
+
+#filebeat.autodiscover:
+#  providers:
+#    - type: docker
+#      hints.enabled: true
+
+processors:
+- add_cloud_metadata: ~
+
+output.elasticsearch:
+  hosts: ["https://your.elasticsearch.instance"]
+  username: "create-a-user-in-kibana-with appropriate-permissions-then-add-that-info-here"
+  password: "see username"
