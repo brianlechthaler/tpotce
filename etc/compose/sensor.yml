@@ -550,7 +550,7 @@ services:
   metricbeat:
     container_name: metricbeat
     restart: always
-    image: "docker.elastic.co/beats/metricbeat:7.8.1"
+    image: "docker.elastic.co/beats/metricbeat:7.9.0"
     user: root    
     volumes:
      - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -563,7 +563,7 @@ services:
   auditbeat:
    container_name: auditbeat
    restart: always
-   image: "docker.elastic.co/beats/auditbeat:7.8.1"
+   image: "docker.elastic.co/beats/auditbeat:7.9.0"
    cap_add:
     - "AUDIT_CONTROL"
     - "AUDIT_READ"
@@ -577,7 +577,7 @@ services:
    user: root
    container_name: packetbeat
    restart: always
-   image: "docker.elastic.co/beats/packetbeat:7.8.1"
+   image: "docker.elastic.co/beats/packetbeat:7.9.0"
    cap_add:
     - "NET_RAW"
     - "NET_ADMIN"
@@ -591,7 +591,7 @@ services:
    user: root
    container_name: heartbeat
    restart: always
-   image: "docker.elastic.co/beats/heartbeat:7.8.1"
+   image: "docker.elastic.co/beats/heartbeat:7.9.0"
    volumes:
     - /data/heartbeat/heartbeat.docker.yml:/usr/share/heartbeat/heartbeat.yml:ro
    entrypoint: ["heartbeat", "--environment=container", "--strict.perms=false"]
