@@ -1,6 +1,6 @@
 filebeat.config:
   modules:
-    path: /data/modules.d/*.yml
+    path: /opt/tpot/etc/elastic/filebeat/modules.d/*.yml
     reload.enabled: false
 
 filebeat.modules:
