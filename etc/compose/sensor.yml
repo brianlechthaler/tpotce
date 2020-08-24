@@ -1,4 +1,5 @@
 # T-Pot (Sensor)
+# Modified by Brian Lechthaler
 # Do not erase ports sections, these are used by /opt/tpot/bin/rules.sh to setup iptables ACCEPT rules for NFQ (honeytrap / glutton)
 version: '2.3'
 
@@ -571,27 +572,3 @@ services:
    user: root
    volumes:
     - /data/auditbeat/auditbeat.docker.yml:/usr/share/auditbeat/auditbeat.yml:ro
-
-## Packetbeat service
-  packetbeat:
-   user: root
-   container_name: packetbeat
-   restart: always
-   image: "docker.elastic.co/beats/packetbeat:7.9.0"
-   cap_add:
-    - "NET_RAW"
-    - "NET_ADMIN"
-   network_mode: host
-   volumes:
-    - /data/packetbeat/packetbeat.docker.yml:/usr/share/packetbeat/packetbeat.yml:ro
-   entrypoint: ["packetbeat", "--environment=container", "--strict.perms=false"]
-
-## Heartbeat Service
-  heartbeat:
-   user: root
-   container_name: heartbeat
-   restart: always
-   image: "docker.elastic.co/beats/heartbeat:7.9.0"
-   volumes:
-    - /data/heartbeat/heartbeat.docker.yml:/usr/share/heartbeat/heartbeat.yml:ro
-   entrypoint: ["heartbeat", "--environment=container", "--strict.perms=false"]
