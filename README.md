@@ -9,7 +9,6 @@
 * (**REQUIRED**)After install, edit `/opt/tpot/etc/elastic/`(the name of your beat here without parens)`.yml`
   * Don't forget to set parameters `host`, `username`, and `password` for each beat to the correct values for your elasticsearch instance.  
   * It is recommended you use an external Elasticsearch instance such as [Elastic Cloud](https://www.elastic.co/cloud/), which is what I use in production.
-* By default, the configuration files are designed to route index requests to a logstash instance on the same subnet as T-Pot. This allows many T-Pot instances to be deployed at the same time, which is vital to me as my setup requires redundant T-Pot hosts for high availibility.
 * Follow T-Pot wiki instructions for configuring logstash for remote log shipping
 * Configure Suricata `capture_filter.bpf` filter rules under `/opt/tpot/docker/suricata/dist/` for your remote Elasticsearch instance so index requests to that instance don't count as logged traffic
 
