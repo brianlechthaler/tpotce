@@ -1,17 +1,20 @@
 # T-Pot Fork
+
 ## Changes
 * Edited `sensor.yml` configuration to support Elastic Beats 7.9.0
 * Edited `sensor.yml` to use logstash to ship logs from `/data` (you'll need to edit your logstash config to accomodate for shipping your logs off to a remote Elasticsearch instance)
+* A few minor tweaks, such as ensuring `clean.sh` securely erases data from `/data` instead of just `rm`ing it
 
 ## Using modified `sensor.yml`
-* After install, edit `/opt/tpot/etc/elastic/`(the name of your beat here without parens)`.yml`
-  * Don't forget to set parameters `host`, `username`, and `password` for each beat. 
+* (**REQUIRED**)After install, edit `/opt/tpot/etc/elastic/`(the name of your beat here without parens)`.yml`
+  * Don't forget to set parameters `host`, `username`, and `password` for each beat to the correct values for your elasticsearch instance.  
   * It is recommended you use an external Elasticsearch instance such as [Elastic Cloud](https://www.elastic.co/cloud/), which is what I use in production.
+* By default, the configuration files are designed to route index requests to a logstash instance on the same subnet as T-Pot. This allows many T-Pot instances to be deployed at the same time, which is vital to me as my setup requires redundant T-Pot hosts for high availibility.
 * Follow T-Pot wiki instructions for configuring logstash for remote log shipping
-* (**VERY IMPORTANT**)Configure Suricata `capture_filter.bpf` filter rules under `/opt/tpot/docker/suricata/dist/` for your remote Elasticsearch instance so index requests to that instance don't count as logged traffic
+* Configure Suricata `capture_filter.bpf` filter rules under `/opt/tpot/docker/suricata/dist/` for your remote Elasticsearch instance so index requests to that instance don't count as logged traffic
 
 
-
+# Original `README.md`
 **The following is the original README.md from [here](https://github.com/telekom-security/tpotce):**
 ![T-Pot](doc/tpotsocial.png)
 
