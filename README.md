@@ -1,6 +1,6 @@
-# T-Pot Fork
-
+# T-Pot Fork [**Experimental** Google Cloud Compute Engine Support]
 ## Changes
+* **Add Terraform support for Google Cloud**
 * Edited `sensor.yml` configuration to support Elastic Beats 7.9.0
 * Edited `sensor.yml` to use logstash to ship logs from `/data` (you'll need to edit your logstash config to accomodate for shipping your logs off to a remote Elasticsearch instance)
 * A few minor tweaks, such as ensuring `clean.sh` securely erases data from `/data` instead of just `rm`ing it
