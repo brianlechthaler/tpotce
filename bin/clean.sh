@@ -18,7 +18,7 @@ fuEMPTY () {
 echo $(ls $myFOLDER | wc -l)
 }
 
-# Let's create a function to rotate nd compress logs
+# Let's create a function to rotate and compress logs
 fuLOGROTATE () {
   local mySTATUS="/opt/tpot/etc/logrotate/status"
   local myCONF="/opt/tpot/etc/logrotate/logrotate.conf"
@@ -62,8 +62,8 @@ if [ "$(fuEMPTY $myTANNERF)" != "0" ]; then tar -I $myPIGZ -cvf $myTANNERFTGZ $m
 chmod 770 $myADBHONEYTGZ $myCOWRIETTYTGZ $myCOWRIEDLTGZ $myDIONAEABITGZ $myDIONAEABINTGZ $myHONEYTRAPATTACKSTGZ $myHONEYTRAPDLTGZ $myTANNERFTGZ
 chown tpot:tpot $myADBHONEYTGZ $myCOWRIETTYTGZ $myCOWRIEDLTGZ $myDIONAEABITGZ $myDIONAEABINTGZ $myHONEYTRAPATTACKSTGZ $myHONEYTRAPDLTGZ $myTANNERFTGZ
 
-# Need to remove subfolders since too many files cause shred to exit with errors
-shred -fvzn 3 $myADBHONEYDL $myCOWRIETTYLOGS $myCOWRIEDL $myDIONAEABI $myDIONAEABIN $myHONEYTRAPATTACKS $myHONEYTRAPDL $myTANNERF
+# Need to remove subfolders since too many files cause rm to exit with errors
+rm -rf $myADBHONEYDL $myCOWRIETTYLOGS $myCOWRIEDL $myDIONAEABI $myDIONAEABIN $myHONEYTRAPATTACKS $myHONEYTRAPDL $myTANNERF
 
 # Recreate subfolders with correct permissions and ownership
 mkdir -p $myADBHONEYDL $myCOWRIETTYLOGS $myCOWRIEDL $myDIONAEABI $myDIONAEABIN $myHONEYTRAPATTACKS $myHONEYTRAPDL $myTANNERF
@@ -76,7 +76,7 @@ logrotate -s $mySTATUS $myCONF
 
 # Let's create a function to clean up and prepare honeytrap data
 fuADBHONEY () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/adbhoney/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/adbhoney/*; fi
   mkdir -p /data/adbhoney/log/ /data/adbhoney/downloads/
   chmod 770 /data/adbhoney/ -R
   chown tpot:tpot /data/adbhoney/ -R
@@ -84,7 +84,7 @@ fuADBHONEY () {
 
 # Let's create a function to clean up and prepare ciscoasa data
 fuCISCOASA () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/ciscoasa/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/ciscoasa/*; fi
   mkdir -p /data/ciscoasa/log
   chmod 770 /data/ciscoasa -R
   chown tpot:tpot /data/ciscoasa -R
@@ -92,7 +92,7 @@ fuCISCOASA () {
 
 # Let's create a function to clean up and prepare citrixhoneypot data
 fuCITRIXHONEYPOT () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/citrixhoneypot/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/citrixhoneypot/*; fi
   mkdir -p /data/citrixhoneypot/logs/
   chmod 770 /data/citrixhoneypot/ -R
   chown tpot:tpot /data/citrixhoneypot/ -R
@@ -100,7 +100,7 @@ fuCITRIXHONEYPOT () {
 
 # Let's create a function to clean up and prepare conpot data
 fuCONPOT () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/conpot/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/conpot/*; fi
   mkdir -p /data/conpot/log
   chmod 770 /data/conpot -R
   chown tpot:tpot /data/conpot -R
@@ -108,7 +108,7 @@ fuCONPOT () {
 
 # Let's create a function to clean up and prepare cowrie data
 fuCOWRIE () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/cowrie/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/cowrie/*; fi
   mkdir -p /data/cowrie/log/tty/ /data/cowrie/downloads/ /data/cowrie/keys/ /data/cowrie/misc/
   chmod 770 /data/cowrie -R
   chown tpot:tpot /data/cowrie -R
@@ -116,7 +116,7 @@ fuCOWRIE () {
 
 # Let's create a function to clean up and prepare dicompot data
 fuDICOMPOT () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/dicompot/log; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/dicompot/log; fi
   mkdir -p /data/dicompot/log
   mkdir -p /data/dicompot/images
   chmod 770 /data/dicompot -R
@@ -125,7 +125,7 @@ fuDICOMPOT () {
 
 # Let's create a function to clean up and prepare dionaea data
 fuDIONAEA () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/dionaea/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/dionaea/*; fi
   mkdir -p /data/dionaea/log /data/dionaea/bistreams /data/dionaea/binaries /data/dionaea/rtp /data/dionaea/roots/ftp /data/dionaea/roots/tftp /data/dionaea/roots/www /data/dionaea/roots/upnp
   chmod 770 /data/dionaea -R
   chown tpot:tpot /data/dionaea -R
@@ -133,7 +133,7 @@ fuDIONAEA () {
 
 # Let's create a function to clean up and prepare elasticpot data
 fuELASTICPOT () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/elasticpot/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/elasticpot/*; fi
   mkdir -p /data/elasticpot/log
   chmod 770 /data/elasticpot -R
   chown tpot:tpot /data/elasticpot -R
@@ -143,7 +143,7 @@ fuELASTICPOT () {
 fuELK () {
   # ELK data will be kept for <= 90 days, check /etc/crontab for curator modification
   # ELK daemon log files will be removed
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/elk/log/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/elk/log/*; fi
   mkdir -p /data/elk
   chmod 770 /data/elk -R
   chown tpot:tpot /data/elk -R
@@ -151,7 +151,7 @@ fuELK () {
 
 # Let's create a function to clean up and prepare fatt data
 fuFATT () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/fatt/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/fatt/*; fi
   mkdir -p /data/fatt/log
   chmod 770 -R /data/fatt
   chown tpot:tpot -R /data/fatt
@@ -159,7 +159,7 @@ fuFATT () {
 
 # Let's create a function to clean up and prepare glastopf data
 fuGLUTTON () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/glutton/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/glutton/*; fi
   mkdir -p /data/glutton/log
   chmod 770 /data/glutton -R
   chown tpot:tpot /data/glutton -R
@@ -167,7 +167,7 @@ fuGLUTTON () {
 
 # Let's create a function to clean up and prepare heralding data
 fuHERALDING () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/heralding/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/heralding/*; fi
   mkdir -p /data/heralding/log
   chmod 770 /data/heralding -R
   chown tpot:tpot /data/heralding -R
@@ -175,7 +175,7 @@ fuHERALDING () {
 
 # Let's create a function to clean up and prepare honeypy data
 fuHONEYPY () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/honeypy/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/honeypy/*; fi
   mkdir -p /data/honeypy/log
   chmod 770 /data/honeypy -R
   chown tpot:tpot /data/honeypy -R
@@ -183,7 +183,7 @@ fuHONEYPY () {
 
 # Let's create a function to clean up and prepare honeysap data
 fuHONEYSAP () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/honeysap/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/honeysap/*; fi
   mkdir -p /data/honeysap/log
   chmod 770 /data/honeysap -R
   chown tpot:tpot /data/honeysap -R
@@ -191,7 +191,7 @@ fuHONEYSAP () {
 
 # Let's create a function to clean up and prepare honeytrap data
 fuHONEYTRAP () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/honeytrap/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/honeytrap/*; fi
   mkdir -p /data/honeytrap/log/ /data/honeytrap/attacks/ /data/honeytrap/downloads/
   chmod 770 /data/honeytrap/ -R
   chown tpot:tpot /data/honeytrap/ -R
@@ -207,7 +207,7 @@ fuIPPHONEY () {
 
 # Let's create a function to clean up and prepare mailoney data
 fuMAILONEY () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/mailoney/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/mailoney/*; fi
   mkdir -p /data/mailoney/log/
   chmod 770 /data/mailoney/ -R
   chown tpot:tpot /data/mailoney/ -R
@@ -215,7 +215,7 @@ fuMAILONEY () {
 
 # Let's create a function to clean up and prepare mailoney data
 fuMEDPOT () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/medpot/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/medpot/*; fi
   mkdir -p /data/medpot/log/
   chmod 770 /data/medpot/ -R
   chown tpot:tpot /data/medpot/ -R
@@ -223,7 +223,7 @@ fuMEDPOT () {
 
 # Let's create a function to clean up nginx logs
 fuNGINX () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/nginx/log/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/nginx/log/*; fi
   touch /data/nginx/log/error.log
   chmod 644 /data/nginx/conf -R
   chmod 644 /data/nginx/cert -R
@@ -231,7 +231,7 @@ fuNGINX () {
 
 # Let's create a function to clean up and prepare rdpy data
 fuRDPY () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/rdpy/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/rdpy/*; fi
   mkdir -p /data/rdpy/log/
   chmod 770 /data/rdpy/ -R
   chown tpot:tpot /data/rdpy/ -R
@@ -247,7 +247,7 @@ fuSPIDERFOOT () {
 
 # Let's create a function to clean up and prepare suricata data
 fuSURICATA () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/suricata/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/suricata/*; fi
   mkdir -p /data/suricata/log
   chmod 770 -R /data/suricata
   chown tpot:tpot -R /data/suricata
@@ -255,7 +255,7 @@ fuSURICATA () {
 
 # Let's create a function to clean up and prepare p0f data
 fuP0F () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/p0f/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/p0f/*; fi
   mkdir -p /data/p0f/log
   chmod 770 -R /data/p0f
   chown tpot:tpot -R /data/p0f
@@ -263,7 +263,7 @@ fuP0F () {
 
 # Let's create a function to clean up and prepare p0f data
 fuTANNER () {
-  if [ "$myPERSISTENCE" != "on" ]; then shred -fvzn 3 /data/tanner/*; fi
+  if [ "$myPERSISTENCE" != "on" ]; then rm -rf /data/tanner/*; fi
   mkdir -p /data/tanner/log /data/tanner/files
   chmod 770 -R /data/tanner
   chown tpot:tpot -R /data/tanner

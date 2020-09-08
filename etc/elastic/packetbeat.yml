@@ -1,4 +1,0 @@
-output.elasticsearch:
-  hosts: ["https://your.elasticsearch.instance"]
-  username: "create-a-user-in-kibana-with appropriate-permissions-then-add-that-info-here"
-  password: "see username"
