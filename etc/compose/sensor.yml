@@ -505,7 +505,9 @@ services:
     image: "ghcr.io/telekom-security/suricata:2006"
     volumes:
      - /data/suricata/log:/var/log/suricata
-
+     - /opt/tpot/etc/zeek-experimental/suricata.yaml:/opt/suricata.yaml:ro
+    command:
+     - SURICATA_CAPTURE_FILTER=$(update.sh $OINKCODE) && exec suricata -c /opt/suricata.yaml -v -F $SURICATA_CAPTURE_FILTER -i $(/sbin/ip address | grep '^2: ' | awk '{ print $2 }' | tr -d [:punct:])
 
 ##################
 #### Tools
