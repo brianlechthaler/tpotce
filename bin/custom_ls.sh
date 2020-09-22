@@ -1,12 +1,10 @@
 #!/bin/sh
-echo "Usage: custom_ls.sh <username> <host> "
+echo "Usage: custom_ls.sh <username> <host>"
 echo "Username: $1"
 echo "ES Host: $2"
-
 export cfgsrc="/opt/tpot/etc/custom-ls/logstash.conf"
 export cfg="/data/elk/logstash.conf"
-echo "Configuration directory: $cfg"
-
+echo "Copying from: $cfgsrc to new configuration directory: $cfg"
 if $USER="root"
 then
   cp -n $cfgsrc $cfg
@@ -16,10 +14,12 @@ then
   sed 's/your_elasticsearch_user/$1/g' $cfg
   sed 's/your_elasticsearch_host/"$2"/g' $cfg
   chown tpot:tpot $cfg
-  echo "Success: Configuration updated. To restart Logstash, try:"
-  echo "sudo docker restart logstash"
-  echo "IMPORTANT: Be sure to check container log output to make sure the new configuration does not produce any errors."
+  echo "Success: Configuration updated." 
+  echo "         To restart Logstash, try:"
+  echo "         sudo docker restart logstash"
+  echo "WARNING: Be sure to check container log output to make sure the new configuration does not produce any errors."
+  echo "           To check container logs, try:"
+  echo "           sudo docker logs logstash"
 else
   echo "Permission Error: It looks like you are not root. Please try running this command again with sudo."
   echo "                  You just tried to run this script as: $(whoami)"
-  
