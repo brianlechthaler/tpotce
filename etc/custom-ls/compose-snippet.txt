@@ -1,0 +1,16 @@
+##################
+#### Custom
+##################
+
+## Logstash service
+  logstash:
+    container_name: logstash
+    restart: always
+    environment:
+     - LS_JAVA_OPTS=-Xms1024m -Xmx1024m
+    env_file:
+     - /opt/tpot/etc/compose/elk_environment
+    image: "ghcr.io/telekom-security/logstash:2006"
+    volumes:
+     - /data:/data:ro
+     - /data/elk/logstash.conf:/etc/logstash/conf.d/logstash.conf:ro
