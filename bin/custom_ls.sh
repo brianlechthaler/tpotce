@@ -3,11 +3,13 @@ echo "Usage: custom_ls.sh <username> <host> "
 echo "Username: $1"
 echo "ES Host: $2"
 
-export cfg="/opt/tpot/etc/custom-ls/logstash.conf"
+export cfgsrc="/opt/tpot/etc/custom-ls/logstash.conf"
+export cfg="/data/elk/logstash.conf"
 echo "Configuration directory: $cfg"
 
 if $USER="root"
 then
+  cp -n $cfgsrc $cfg
   read -s -p "Type or paste in the password for $1 and hit ENTER: " password
   sed 's/your_elasticsearch_password/"$password"/g' $cfg
   unset password
