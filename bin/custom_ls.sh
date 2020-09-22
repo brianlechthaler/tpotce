@@ -19,4 +19,5 @@ then
   echo "IMPORTANT: Be sure to check container log output to make sure the new configuration does not produce any errors."
 else
   echo "Permission Error: It looks like you are not root. Please try running this command again with sudo."
+  echo "                  You just tried to run this script as: $(whoami)"
   
