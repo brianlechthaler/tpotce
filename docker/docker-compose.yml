@@ -10,98 +10,98 @@ services:
 # Adbhoney service
   adbhoney:
     build: adbhoney/.
-    image: "ghcr.io/telekom-security/adbhoney:2006"
+    image: "us.gcr.io/neutralthreat/adbhoney:2006"
 
 # Ciscoasa service
   ciscoasa:
     build: ciscoasa/.
-    image: "ghcr.io/telekom-security/ciscoasa:2006"
+    image: "us.gcr.io/neutralthreat/ciscoasa:2006"
 
 # CitrixHoneypot service
   citrixhoneypot:
     build: citrixhoneypot/.
-    image: "ghcr.io/telekom-security/citrixhoneypot:2006"
+    image: "us.gcr.io/neutralthreat/citrixhoneypot:2006"
 
 # Conpot IEC104 service
   conpot_IEC104:
     build: conpot/.
-    image: "ghcr.io/telekom-security/conpot:2006"
+    image: "us.gcr.io/neutralthreat/conpot:2006"
 
 # Cowrie service
   cowrie:
     build: cowrie/.
-    image: "ghcr.io/telekom-security/cowrie:2006"
+    image: "us.gcr.io/neutralthreat/cowrie:2006"
 
 # Dicompot service
   dicompot:
     build: dicompot/.
-    image: "ghcr.io/telekom-security/dicompot:2006"
+    image: "us.gcr.io/neutralthreat/dicompot:2006"
 
 # Dionaea service
   dionaea:
     build: dionaea/.
-    image: "ghcr.io/telekom-security/dionaea:2006"
+    image: "us.gcr.io/neutralthreat/dionaea:2006"
 
 # ElasticPot service
   elasticpot:
     build: elasticpot/.
-    image: "ghcr.io/telekom-security/elasticpot:2006"
+    image: "us.gcr.io/neutralthreat/elasticpot:2006"
 
 # Glutton service
   glutton:
     build: glutton/.
-    image: "ghcr.io/telekom-security/glutton:2006"
+    image: "us.gcr.io/neutralthreat/glutton:2006"
 
 # Heralding service
   heralding:
     build: heralding/.
-    image: "ghcr.io/telekom-security/heralding:2006"
+    image: "us.gcr.io/neutralthreat/heralding:2006"
 
 # HoneyPy service
   honeypy:
     build: honeypy/.
-    image: "ghcr.io/telekom-security/honeypy:2006"
+    image: "us.gcr.io/neutralthreat/honeypy:2006"
 
 # Honeytrap service
   honeytrap:
     build: honeytrap/.
-    image: "ghcr.io/telekom-security/honeytrap:2006"
+    image: "us.gcr.io/neutralthreat/honeytrap:2006"
 
 # Mailoney service
   mailoney:
     build: mailoney/.
-    image: "ghcr.io/telekom-security/mailoney:2006"
+    image: "us.gcr.io/neutralthreat/mailoney:2006"
 
 # Medpot service
   medpot:
     build: medpot/.
-    image: "ghcr.io/telekom-security/medpot:2006"
+    image: "us.gcr.io/neutralthreat/medpot:2006"
 
 # Rdpy service
   rdpy:
     build: rdpy/.
-    image: "ghcr.io/telekom-security/rdpy:2006"
+    image: "us.gcr.io/neutralthreat/rdpy:2006"
 
 #### Snare / Tanner
 ## Tanner Redis Service
   tanner_redis:
     build: tanner/redis/.
-    image: "ghcr.io/telekom-security/redis:2006"
+    image: "us.gcr.io/neutralthreat/redis:2006"
 
 ## PHP Sandbox service
   tanner_phpox:
     build: tanner/phpox/.
-    image: "ghcr.io/telekom-security/phpox:2006"
+    image: "us.gcr.io/neutralthreat/phpox:2006"
 
 ## Tanner API Service
   tanner_api:
     build: tanner/tanner/.
-    image: "ghcr.io/telekom-security/tanner:2006"
+    image: "us.gcr.io/neutralthreat/tanner:2006"
 
 ## Snare Service
   snare:
     build: tanner/snare/.
-    image: "ghcr.io/telekom-security/snare:2006"
+    image: "us.gcr.io/neutralthreat/snare:2006"
 
 
 ##################
@@ -111,17 +111,17 @@ services:
 # Fatt service
   fatt:
     build: fatt/.
-    image: "ghcr.io/telekom-security/fatt:2006"
+    image: "us.gcr.io/neutralthreat/fatt:2006"
 
 # P0f service
   p0f:
     build: p0f/.
-    image: "ghcr.io/telekom-security/p0f:2006"
+    image: "us.gcr.io/neutralthreat/p0f:2006"
 
 # Suricata service
   suricata:
     build: suricata/.
-    image: "ghcr.io/telekom-security/suricata:2006"
+    image: "us.gcr.io/neutralthreat/suricata:2006"
 
 
 ##################
@@ -131,40 +131,40 @@ services:
 # Cyberchef service
   cyberchef:
     build: cyberchef/.
-    image: "ghcr.io/telekom-security/cyberchef:2006"
+    image: "us.gcr.io/neutralthreaty/cyberchef:2006"
 
 #### ELK
 ## Elasticsearch service
   elasticsearch:
     build: elk/elasticsearch/.
-    image: "ghcr.io/telekom-security/elasticsearch:2006"
+    image: "us.gcr.io/neutralthreat/elasticsearch:2006"
 
 ## Kibana service
   kibana:
     build: elk/kibana/.
-    image: "ghcr.io/telekom-security/kibana:2006"
+    image: "us.gcr.io/neutralthreat/kibana:2006"
 
 ## Logstash service
   logstash:
     build: elk/logstash/.
-    image: "ghcr.io/telekom-security/logstash:2006"
+    image: "us.gcr.io/neutralthreat/logstash:2006"
 
 ## Elasticsearch-head service
   head:
     build: elk/head/.
-    image: "ghcr.io/telekom-security/head:2006"
+    image: "us.gcr.io/neutralthreat/head:2006"
 
 # Ewsposter service
   ewsposter:
     build: ews/.
-    image: "ghcr.io/telekom-security/ewsposter:2006"
+    image: "us.gcr.io/neutralthreat/ewsposter:2006"
 
 # Nginx service
   nginx:
     build: heimdall/.
-    image: "ghcr.io/telekom-security/nginx:2006"
+    image: "us.gcr.io/neutralthreat/nginx:2006"
 
 # Spiderfoot service
   spiderfoot:
     build: spiderfoot/.
-    image: "ghcr.io/telekom-security/spiderfoot:2006"
+    image: "us.gcr.io/neutralthreat/spiderfoot:2006"
