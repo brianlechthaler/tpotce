@@ -44,7 +44,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/cyberchef:2006', 'docker/cyberchef/']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/honeysap:2006', 'honeysap/honeysap/']
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/honeysap:2006', 'docker/honeysap/']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/heralding:2006', 'docker/heralding/']
 - name: 'gcr.io/cloud-builders/docker'
