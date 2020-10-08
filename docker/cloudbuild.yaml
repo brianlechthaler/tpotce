@@ -1,0 +1,90 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/suricata:tpotlatest', 'docker/suricata/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/p0f:tpotlatest', 'docker/p0f/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/fatt:tpotlatest', 'docker/fatt/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/logstash:tpotlatest', 'docker/elk/logstash']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/elasticsearch:tpotlatest', 'docker/elk/elasticsearch']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/kibana:tpotlatest', 'docker/elk/kibana']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/head:tpotlatest', 'docker/elk/head']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/cowrie:latest', 'docker/cowrie/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/dionaea:latest', 'docker/dionaea/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/elasticpot:latest', 'docker/elasticpot/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/honeytrap:latest', 'docker/honeytrap/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/mailoney:latest', 'docker/mailoney/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/medpot:latest', 'docker/medpot/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/rdpy:latest', 'docker/rdpy/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/spiderfoot:latest', 'docker/spiderfoot/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/snare:latest', 'docker/tanner/snare']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/tanner_api:latest', 'docker/tanner/tanner']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/tanner_phpox:latest', 'docker/tanner/phpox']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/tanner_redis:latest', 'docker/tanner/redis']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/honeypy:latest', 'docker/honeypy/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/dicompot:latest', 'docker/dicompot/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/cyberchef:latest', 'docker/cyberchef/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/honeysap:latest', 'honeysap/honeysap/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/heralding:latest', 'docker/heralding/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/heimdall:latest', 'docker/heimdall/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/conpot:latest', 'docker/conpot/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/citrixhoneypot:latest', 'docker/citrixhoneypot/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/adbhoney:latest', 'docker/adbhoney/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/ewsposter:latest', 'docker/ews/']
+timeout: 2400s
+images:
+- 'us.gcr.io/$PROJECT_ID/suricata:tpotlatest'
+- 'us.gcr.io/$PROJECT_ID/p0f:tpotlatest'
+- 'us.gcr.io/$PROJECT_ID/fatt:tpotlatest'
+- 'us.gcr.io/$PROJECT_ID/kibana:tpotlatest'
+- 'us.gcr.io/$PROJECT_ID/elasticsearch:tpotlatest'
+- 'us.gcr.io/$PROJECT_ID/logstash:tpotlatest'
+- 'us.gcr.io/$PROJECT_ID/head:tpotlatest'
+- 'us.gcr.io/$PROJECT_ID/adbhoney:latest'
+- 'us.gcr.io/$PROJECT_ID/ewsposter:latest'
+- 'us.gcr.io/$PROJECT_ID/citrixhoneypot:latest'
+- 'us.gcr.io/$PROJECT_ID/conpot:latest'
+- 'us.gcr.io/$PROJECT_ID/heimdall:latest'
+- 'us.gcr.io/$PROJECT_ID/heralding:latest'
+- 'us.gcr.io/$PROJECT_ID/honeypy:latest'
+- 'us.gcr.io/$PROJECT_ID/honeysap:latest'
+- 'us.gcr.io/$PROJECT_ID/honeytrap:latest'
+- 'us.gcr.io/$PROJECT_ID/dicompot:latest'
+- 'us.gcr.io/$PROJECT_ID/dionaea:latest'
+- 'us.gcr.io/$PROJECT_ID/elasticpot:latest'
+- 'us.gcr.io/$PROJECT_ID/cyberchef:latest'
+- 'us.gcr.io/$PROJECT_ID/cowrie:latest'
+- 'us.gcr.io/$PROJECT_ID/snare:latest'
+- 'us.gcr.io/$PROJECT_ID/tanner_api:latest'
+- 'us.gcr.io/$PROJECT_ID/tanner_redis:latest'
+- 'us.gcr.io/$PROJECT_ID/tanner_phpox:latest'
+- 'us.gcr.io/$PROJECT_ID/rdpy:latest'
+- 'us.gcr.io/$PROJECT_ID/spiderfoot:latest'
+- 'us.gcr.io/$PROJECT_ID/medpot:latest'
+- 'us.gcr.io/$PROJECT_ID/mailoney:latest'
