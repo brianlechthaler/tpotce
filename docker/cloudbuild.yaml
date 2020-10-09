@@ -96,3 +96,6 @@ images:
 - 'us.gcr.io/$PROJECT_ID/spiderfoot:2006'
 - 'us.gcr.io/$PROJECT_ID/medpot:2006'
 - 'us.gcr.io/$PROJECT_ID/mailoney:2006'
+- 'us.gcr.io/$PROJECT_ID/hpfeeds:2006'
+- 'us.gcr.io/$PROJECT_ID/glastopf:2006'
+- 'us.gcr.io/$PROJECT_ID/nginx:2006'
