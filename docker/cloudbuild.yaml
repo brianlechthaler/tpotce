@@ -57,7 +57,13 @@ steps:
   args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/adbhoney:2006', 'docker/adbhoney/']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/ewsposter:2006', 'docker/ews/']
-timeout: 3600s
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/nginx:2006', 'docker/deprecated/nginx/']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/hpfeeds:2006', 'docker/deprecated/hpfeeds']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/glastopf:2006', 'docker/deprecated/glastopf/']
+timeout: 7200s
 options:
  machine_type: 'N1_HIGHCPU_32'
 images:
