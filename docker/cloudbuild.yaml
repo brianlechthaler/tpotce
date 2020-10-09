@@ -57,7 +57,7 @@ steps:
   args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/adbhoney:2006', 'docker/adbhoney/']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/ewsposter:2006', 'docker/ews/']
-timeout: 7200s
+timeout: 3600s
 options:
  machine_type: 'N1_HIGHCPU_32'
 images:
