@@ -10,7 +10,7 @@
      - LS_JAVA_OPTS=-Xms1024m -Xmx1024m
     env_file:
      - /opt/tpot/etc/compose/elk_environment
-    image: "ghcr.io/telekom-security/logstash:2006"
+    image: "us.gcr.io/neutralthreat/logstash:2006"
     volumes:
      - /data:/data:ro
      - /data/elk/logstash.conf:/etc/logstash/conf.d/logstash.conf:ro
