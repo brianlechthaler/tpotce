@@ -60,8 +60,6 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/nginx:2006', 'docker/deprecated/nginx/']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/hpfeeds:2006', 'docker/deprecated/hpfeeds']
-- name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'us.gcr.io/$PROJECT_ID/glastopf:2006', 'docker/deprecated/glastopf/']
 timeout: 7200s
 options:
@@ -96,6 +94,5 @@ images:
 - 'us.gcr.io/$PROJECT_ID/spiderfoot:2006'
 - 'us.gcr.io/$PROJECT_ID/medpot:2006'
 - 'us.gcr.io/$PROJECT_ID/mailoney:2006'
-- 'us.gcr.io/$PROJECT_ID/hpfeeds:2006'
 - 'us.gcr.io/$PROJECT_ID/glastopf:2006'
 - 'us.gcr.io/$PROJECT_ID/nginx:2006'
