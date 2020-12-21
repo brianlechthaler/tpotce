@@ -10,6 +10,7 @@ ADD dist/ /root/dist/
 #RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
 RUN    apk -U add \
                  ca-certificates \
+		 py3-pip \
                  curl \
                  file \
                  geoip \
